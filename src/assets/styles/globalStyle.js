@@ -7,11 +7,17 @@ const GlobalStyle = createGlobalStyle `
   *{
     box-sizing:border-box;
   }
+  
 
-  body {
+  .root {
     background-color:#ffffff;
     display:flex;
     flex-direction:column;
+    align-items:center;
+    font-family: 'Lexend Deca', sans-serif;
+  }
+
+  .root button, input {
     font-family: 'Lexend Deca', sans-serif;
   }
   
