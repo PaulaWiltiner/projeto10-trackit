@@ -41,12 +41,12 @@ const DivForm = styled.div`
 
 const DivInput = styled.div`
   margin-top:7px;
-  color:#293845;
-  font-size: 20px;
   font-weight: 400;
   width:100%;
 
   input {
+    color: #666666;
+    font-size: 18px;
     width: 303px;
     height: 45px;
     padding-left:10px;

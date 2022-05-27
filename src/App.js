@@ -19,11 +19,11 @@ export default function App() {
 
           <Routes>
 
-              <Route  path='/' element={<Login/>} />
+              <Route  path='/login' element={<Login/>} />
               <Route path='/register' element={<Register />}/>
               <Route path='/habits' element={<Habits />}/>
               <Route  path='/historic' element={<Historic/>} />
-              <Route path='/today' element={<Today/>}/>
+              <Route path='/' element={<Today/>}/>
 
           </Routes>
 

@@ -53,4 +53,10 @@ const Button = styled.button`
   
   border: 1px solid;
   border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+  :hover {
+    filter: brightness(1.1);
+    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.15);
+}
 `
