@@ -5,21 +5,25 @@ import { useState } from 'react';
 import Tasks from '../../components/TodayComponents/Tasks';
 import dayjs from 'dayjs'
 import "dayjs/locale/pt-br";
+import { useContext } from "react";
+import TokenContext from "../../contexts/TokenContext";
 
 
 export default function Today() {
 
+  const { token, photo } = useContext(TokenContext);
 
   const day = dayjs()
           .locale("pt-br")
           .format('dddd , DD/MM')
           .replace('-feira', '')
+          
   const dayComplete=day[0].toUpperCase()+day.substring(1)
 
   return(
     <ContainerToday> 
 
-      <Header />
+      <Header photo={photo}/>
 
       <Title>
         <h2>{dayComplete}</h2>

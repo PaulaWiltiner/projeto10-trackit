@@ -4,10 +4,15 @@ import Footer from '../../components/Footer'
 import AddHabit from '../../components/HabitsComponents/AddHabit'
 import Overview from '../../components/HabitsComponents/Overview'
 import { useState } from 'react';
+import { useContext } from "react";
+import TokenContext from "../../contexts/TokenContext";
 
 export default function Habits() {
 
-  const [swap, setSwap] = useState(false)
+  const { token, photo } = useContext(TokenContext);
+
+  const [swap, setSwap] = useState(false);
+  
   const [form, setForm] = useState({
     name: '',
     days: [],
@@ -17,7 +22,7 @@ export default function Habits() {
   return(
     <DivHabits> 
 
-      <Header />
+      <Header photo={photo} />
 
       <Title>
         <h2>Meus hábitos</h2>

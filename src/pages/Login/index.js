@@ -2,27 +2,67 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import FormLogin from '../../components/Forms/FormLogin'
 import logo from '../../assets/images/logo.png'
+import { Link }from 'react-router-dom'
+import SignIn from '../../data/SignIn'
+import SignInContext from "../../contexts/SignInContext";
+import { ThreeDots } from "react-loader-spinner";
+
 
 export default function Login() {
+
+  const [swap,setSwap] = useState(false)
+
+  const [loading,setLoading] = useState(false)
 
   const [form, setForm] = useState({
     email: '',
     password: '',
-
   });
 
   return(
-    < > 
+    <SignInContext.Provider
+      value={
+        {form,
+         setForm, 
+         swap,
+         setSwap, 
+         loading,
+         setLoading}
+      } >
+     
+     {
+       swap ?
+        <SignIn />
+         :
+         null
+     }
 
      <Logo src={logo} alt="" />
 
-     <FormLogin form={form} setForm={setForm}/>
+     <FormLogin/>
 
-     <Button >Entrar</Button>
+     <Button onClick={()=> 
+      setSwap(true)} disabled={swap} >
+        
+      {
+        swap ?
+          <ThreeDots
+            color="#ffffff"
+            height={40}
+            width={80}
+            /> 
+          :
+          'Entrar'
+      }
+      </Button>
 
-     <TextRegister>Não tem uma conta? Cadastre-se!</TextRegister>
+     <Link to='/register'>
+      <TextRegister>
+        Não tem uma conta? Cadastre-se!
+      </TextRegister>
+     </Link>
 
-    </>
+    </SignInContext.Provider>
   )
 
 } 
@@ -47,6 +87,9 @@ const Button = styled.button`
   font-size:21px;
   font-weight:400;
   background:#52B6FF;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   
   
   border: 1px solid;

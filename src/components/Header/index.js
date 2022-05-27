@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import imgtest from '../../assets/images/bobesponja.jpeg'
 
-export default function Header() {
+
+export default function Header({photo}) {
 
   return(
     <DivHeader>
       <h1>TrackIt</h1>
-      <Foto src={imgtest} alt="" />
+      <Foto src={photo} alt=""/>
     </DivHeader>
   )
 } 
@@ -35,6 +35,7 @@ const DivHeader = styled.div`
 
 `
 const Foto = styled.img`
-  width: 51px;
-  border-radius: 98.5px;
+  width: 54px;
+  height:55px;
+  border-radius: 100px;
 `

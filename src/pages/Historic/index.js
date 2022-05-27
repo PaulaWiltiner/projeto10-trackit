@@ -2,13 +2,17 @@ import styled from 'styled-components';
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
 import { useState } from 'react';
+import { useContext } from "react";
+import TokenContext from "../../contexts/TokenContext";
 
 export default function Historic() {
+
+  const { token, photo } = useContext(TokenContext);
 
   return(
     <ContainerHistoric>
 
-      <Header />
+      <Header photo={photo} />
 
       <Title>
         <h2>Histórico</h2>

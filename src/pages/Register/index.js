@@ -2,29 +2,60 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import FormRegister from '../../components/Forms/FormRegister'
 import logo from '../../assets/images/logo.png'
+import { Link }from 'react-router-dom'
+import SignUpContext from "../../contexts/SignUpContext";
+import SignUp from '../../data/SignUp'
+import { ThreeDots } from "react-loader-spinner";
 
 export default function Register() {
+
+
+  const [swap,setSwap] = useState(false)
 
   const [form, setForm] = useState({
     email: '',
     password: '',
     name:'',
-    foto:''
-
+    image:''
   });
 
   return(
-    < > 
+    <SignUpContext.Provider 
+      value={{form,setForm,swap,setSwap}}> 
+
+    {
+       swap ?
+       <SignUp/>
+       : null
+
+     }
     
      <Logo src={logo} alt="" />
 
-     <FormRegister form={form} setForm={setForm}/>
+     <FormRegister />
 
-     <Button >Cadastrar</Button>
+     <Button onClick={()=> 
+      setSwap(true)} disabled={swap} >
+        
+      {
+        swap ?
+          <ThreeDots
+            color="#ffffff"
+            height={40}
+            width={80}
+            /> 
+          :
+          'Cadastrar'
+      }
+      </Button>
 
-     <TextRegister>Já tem uma conta? Faça login!</TextRegister>
+    <Link to='/'>
+    <TextRegister>
+      Já tem uma conta? Faça login!
+      </TextRegister>
+    </Link>
 
-    </>
+    </SignUpContext.Provider>
   )
 
 } 
@@ -49,6 +80,9 @@ const Button = styled.button`
   font-size:21px;
   font-weight:400;
   background:#52B6FF;
+  display:flex;
+  justify-content:center;
+  align-items:center;
   
   
   border: 1px solid;
