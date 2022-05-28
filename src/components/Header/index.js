@@ -24,6 +24,7 @@ const DivHeader = styled.div`
   box-shadow:  0px 2px 4px 2px rgba(0, 0, 0, 0.1);
 
   position:fixed;
+  z-index:1;
   top:0px;
   font-family: 'Playball', cursive;
   left:0px;

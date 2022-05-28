@@ -34,10 +34,9 @@ export default function Historic() {
 
 
 const ContainerHistoric = styled.div`
-  background-color: #f0f0f0;
   width:100%;
-  height: 100vh;
-  padding:0px 18px;
+  height: 100%;
+  padding:0px 18px 100px 18px;
 `
 
 const Title = styled.div`

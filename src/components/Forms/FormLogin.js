@@ -26,6 +26,7 @@ export default function FormLogin() {
           onChange={handleForm} 
           value={form.email}
           disabled={swap}
+         // autoComplete='off'
         />
       </DivInput>
       <DivInput>
@@ -36,6 +37,7 @@ export default function FormLogin() {
           onChange={handleForm} 
           value={form.password}
           disabled={swap}
+          autoComplete='off'
         />
       </DivInput>
     </DivForm>
@@ -61,6 +63,7 @@ const Input = styled.input`
   background-color: #FFFFFF;
   border: 1px solid #D5D5D5;
   border-radius: 5px;
+  
 
   ::-webkit-input-placeholder {
     color: #DBDBDB;
@@ -74,4 +77,5 @@ const Input = styled.input`
     font-size: 20px;
     font-weight: 400;
   }
+
 `

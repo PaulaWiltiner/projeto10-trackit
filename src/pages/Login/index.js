@@ -29,43 +29,53 @@ export default function Login() {
          loading,
          setLoading}
       } >
-     
-     {
-       swap ?
-        <SignIn />
-         :
-         null
-     }
+      <DivLogin>
+        {
+          swap ?
+            <SignIn />
+            :
+            null
+        }
 
-     <Logo src={logo} alt="" />
+        <Logo src={logo} alt="" />
 
-     <FormLogin/>
+        <FormLogin/>
 
-     <Button onClick={()=> 
-      setSwap(true)} disabled={swap} >
-        
-      {
-        swap ?
-          <ThreeDots
-            color="#ffffff"
-            height={40}
-            width={80}
-            /> 
-          :
-          'Entrar'
-      }
-      </Button>
+        <Button onClick={()=> 
+          setSwap(true)} disabled={swap} >
+            
+          {
+            swap ?
+              <ThreeDots
+                color="#ffffff"
+                height={40}
+                width={80}
+                /> 
+              :
+              'Entrar'
+          }
+          </Button>
 
-     <Link to='/register'>
-      <TextRegister>
-        Não tem uma conta? Cadastre-se!
-      </TextRegister>
-     </Link>
-
+        <Link to='/register' style={{ textDecoration: 'none' }}>
+          <TextRegister>
+            Não tem uma conta? Cadastre-se!
+          </TextRegister>
+        </Link>
+      </DivLogin>
     </SignInContext.Provider>
   )
 
 } 
+
+const DivLogin = styled.div`
+  width:100%;
+  height:100vh;
+  background-color:#ffffff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+`
+
 const Logo = styled.img`
   width:180px;
   margin-top:70px;

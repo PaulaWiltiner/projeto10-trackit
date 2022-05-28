@@ -23,42 +23,53 @@ export default function Register() {
     <SignUpContext.Provider 
       value={{form,setForm,swap,setSwap}}> 
 
-    {
-       swap ?
-       <SignUp/>
-       : null
+      <DivRegister>
+        {
+          swap ?
+          <SignUp/>
+          : null
 
-     }
-    
-     <Logo src={logo} alt="" />
-
-     <FormRegister />
-
-     <Button onClick={()=> 
-      setSwap(true)} disabled={swap} >
+        }
         
-      {
-        swap ?
-          <ThreeDots
-            color="#ffffff"
-            height={40}
-            width={80}
-            /> 
-          :
-          'Cadastrar'
-      }
-      </Button>
+        <Logo src={logo} alt="" />
 
-    <Link to='/'>
-    <TextRegister>
-      Já tem uma conta? Faça login!
-      </TextRegister>
-    </Link>
+        <FormRegister />
 
+        <Button onClick={()=> 
+          setSwap(true)} disabled={swap} >
+            
+          {
+            swap ?
+              <ThreeDots
+                color="#ffffff"
+                height={40}
+                width={80}
+                /> 
+              :
+              'Cadastrar'
+          }
+          </Button>
+
+        <Link to='/' style={{ textDecoration: 'none' }}>
+        <TextRegister>
+          Já tem uma conta? Faça login!
+          </TextRegister>
+        </Link>
+      </DivRegister>
     </SignUpContext.Provider>
   )
 
 } 
+
+const DivRegister= styled.div`
+  width:100%;
+  height:100vh;
+  background-color:#ffffff;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+`
+
 const Logo = styled.img`
   width:180px;
   margin-top:70px;

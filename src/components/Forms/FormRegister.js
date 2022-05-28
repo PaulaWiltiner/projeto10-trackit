@@ -26,6 +26,7 @@ export default function FormRegister() {
           onChange={handleForm} 
           value={form.email}
           disabled={swap}
+          autoComplete='off'
         />
       </DivInput>
       <DivInput>
@@ -36,6 +37,7 @@ export default function FormRegister() {
           onChange={handleForm} 
           value={form.password}
           disabled={swap}
+          autoComplete='off'
         />
       </DivInput>
       <DivInput>
@@ -46,6 +48,7 @@ export default function FormRegister() {
           onChange={handleForm} 
           value={form.name}
           disabled={swap}
+          autoComplete='off'
         />
       </DivInput>
       <DivInput>
@@ -56,6 +59,7 @@ export default function FormRegister() {
           onChange={handleForm} 
           value={form.image}
           disabled={swap}
+          autoComplete='off'
         />
       </DivInput>
     </DivForm>

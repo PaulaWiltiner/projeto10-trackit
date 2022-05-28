@@ -1,8 +1,12 @@
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useContext } from "react";
+import HabitsContext from "../../contexts/HabitsContext";
+import { ThreeDots } from "react-loader-spinner";
 
-export default function AddHabit({form,setForm}) {
+export default function AddHabit() {
 
+  const { form, setForm ,setAdd,swap,setSwap } = useContext(HabitsContext);
+  
   function selectDay(index){
     const checkDay = form.days.some( e => e===index)
     if(checkDay){
@@ -40,6 +44,7 @@ export default function AddHabit({form,setForm}) {
             name="name" 
             onChange={handleForm} 
             value={form.name}
+            disabled={swap}
           />
         </DivInput>
 
@@ -60,6 +65,7 @@ export default function AddHabit({form,setForm}) {
                 key={index}  
                 color={colorButton.color} 
                 background={colorButton.background} 
+                disabled={swap}
                 onClick={
                   ()=> selectDay(index)
                 }>
@@ -72,11 +78,20 @@ export default function AddHabit({form,setForm}) {
         </DivCheckBox>
 
         <ListButtons>
-          <Cancel>
+          <Cancel onClick={()=> setAdd(false)} disabled={swap}>
             Cancelar
           </Cancel>
-          <Save>
-            Salvar
+          <Save onClick={()=> setSwap(true)} disabled={swap}>
+            {
+              swap ?
+                <ThreeDots
+                  color="#ffffff"
+                  height={30}
+                  width={60}
+                  /> 
+                :
+                'Salvar'
+            }
           </Save>
         </ListButtons>
       </FormAdd>
@@ -113,6 +128,13 @@ const DivInput = styled.div`
 
   input::-webkit-input-placeholder {
     color: #DBDBDB;
+    font-size: 20px;
+    font-weight: 400;
+  }
+
+  input:disabled {
+    color:#AFAFAF;
+    background-color: #F2F2F2;
     font-size: 20px;
     font-weight: 400;
   }
@@ -164,6 +186,9 @@ const Save= styled.button`
   border: 1px solid #52B6FF;
   border-radius: 4.6px;
   color:  #ffffff;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 
   :hover {
     filter: brightness(1.1);
