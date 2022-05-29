@@ -118,6 +118,8 @@ export default function Historic() {
                   for (let i = 0; i < listAlert.length; i++) {
                     text += listAlert[i] + "; ";
                   }
+                  setColorDiv("#E75766");
+                  setColorButton("#E75766");
                   setAlert(true);
                   setAlertText({
                     title: "Hábitos não concluídos",
