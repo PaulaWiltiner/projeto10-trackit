@@ -137,9 +137,9 @@ const Button = styled.div`
   font-size: 19px;
   width: 30px;
   height: 30px;
-  text-align: center;
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: ${(props) => props.background};
   border: 1px solid #d5d5d5;
   border-radius: 5px;
