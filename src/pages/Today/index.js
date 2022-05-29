@@ -68,11 +68,15 @@ export default function Today() {
 const ContainerToday = styled.div`
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 0px 18px 100px 18px;
 `;
 
 const Title = styled.div`
   margin-top: 100px;
+  width: 100%;
   display: flex;
   height: 50px;
   flex-direction: column;

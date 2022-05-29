@@ -74,6 +74,9 @@ export default function Habits() {
 const DivHabits = styled.div`
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 0px 18px 100px 18px;
 `;
 
@@ -81,6 +84,7 @@ const Title = styled.div`
   color: #126ba5;
   font-size: 23px;
   margin-top: 100px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
