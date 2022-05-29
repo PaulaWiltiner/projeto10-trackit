@@ -53,7 +53,7 @@ export default function Today() {
           {NumDone === 0 ? (
             <p>Nenhum hábito concluído ainda</p>
           ) : (
-            <Porcent>{NumDone} % dos hábitos concluídos</Porcent>
+            <Porcent>{Math.round(NumDone)} % dos hábitos concluídos</Porcent>
           )}
         </Title>
 

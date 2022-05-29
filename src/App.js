@@ -11,7 +11,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import TokenContext from "./contexts/TokenContext";
 
 export default function App() {
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("token"));
   const [photo, setPhoto] = useState("");
   const [numPorcent, setNumPorcent] = useState(0);
 
@@ -23,9 +23,18 @@ export default function App() {
 
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
+          {token ? (
+            <>
+              <Route path="/habits" element={<Habits />} />
+              <Route path="/" element={<Habits />} />
+            </>
+          ) : (
+            <>
+              <Route path="/" element={<Login />} />
+              <Route path="/habits" element={<Habits />} />
+            </>
+          )}
           <Route path="/register" element={<Register />} />
-          <Route path="/habits" element={<Habits />} />
           <Route path="/historic" element={<Historic />} />
           <Route path="/today" element={<Today />} />
         </Routes>

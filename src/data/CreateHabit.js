@@ -104,6 +104,8 @@ const DivOpacity = styled.div`
   background-color: #f0f0f0;
   opacity: 0.4;
   position: fixed;
+  left: 0px;
+  top: 0px;
   z-index: 1;
 `;
 
