@@ -133,7 +133,7 @@ const DivCheckBox = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-const Button = styled.button`
+const Button = styled.div`
   font-size: 19px;
   width: 30px;
   height: 30px;
