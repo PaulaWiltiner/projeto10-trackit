@@ -64,7 +64,7 @@ export default function AddHabit() {
                 disabled={swap}
                 onClick={() => selectDay(index)}
               >
-                {day}
+                <p>{day}</p>
               </Button>
             );
           })}
@@ -138,6 +138,8 @@ const Button = styled.button`
   width: 30px;
   height: 30px;
   text-align: center;
+  display: flex;
+  justify-content: center;
   background-color: ${(props) => props.background};
   border: 1px solid #d5d5d5;
   border-radius: 5px;
